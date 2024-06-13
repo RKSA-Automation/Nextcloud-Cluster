@@ -1,0 +1,34 @@
+version: '3' 
+
+services:
+  mysql-adminer:
+    build: ./mysql_adminer
+    image: trg_mysql_adminer:1
+    container_name: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      ADMINER_DESIGN: pepa-linha
+      
+#  mysql-shell:
+#    build: ./mysql_shell
+#    image: trg_mysql_shell:1
+#    container_name: mysql_shell
+#    restart: always
+#    volumes:
+#      - ../hosts.txt:/hosts.txt:ro
+      
+#  lam:
+#    build: ./lam
+#    image: trg_lam:1
+#    container_name: lam
+#    restart: always
+#    ports:
+#      - 9090:80
+#    volumes:
+#      - ../hosts.txt:/hosts.txt:ro
+#      - lamconfig:/etc/ldap-account-manager
+
+volumes:
+  lamconfig:

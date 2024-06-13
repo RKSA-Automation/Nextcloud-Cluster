@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  redis:
+    image: docker.io/bitnami/redis:latest
+    restart: always
+    container_name: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_data:/bitnami/redis/data:rw
+    env_file:
+      - ./redis.env
+    environment:
+      - REDIS_PASSWORD
+    
+    command: /opt/bitnami/scripts/redis/run.sh --maxmemory 999mb
+
+volumes:
+  redis_data:

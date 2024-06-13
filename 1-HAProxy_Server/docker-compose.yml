@@ -1,0 +1,15 @@
+version: '3' 
+
+services:
+  haproxy_server:
+    build: ./haproxy/
+    image: trg_haproxy:1
+    container_name: haproxy
+    restart: always
+    ports:
+      - "8404:8404"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./haproxy:/usr/local/etc/haproxy:ro
+      - ../hosts.txt:/hosts.txt:ro

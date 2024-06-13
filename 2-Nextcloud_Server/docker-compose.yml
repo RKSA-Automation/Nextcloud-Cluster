@@ -1,0 +1,26 @@
+version: '3' 
+
+services:
+
+  nextcloud:
+    build: ./nextcloud/
+    image: trg_nextcloud:1
+    container_name: nextcloud
+    restart: always
+    env_file:
+      - ./nextcloud/.env
+    ports:
+      - 8001:80
+    volumes:
+      - ../../data/nextcloud-app:/var/www/html:rw
+      - ../../data/nextcloud-data:/var/www/nextcloud-data:rw
+#      - ../hosts.txt:/hosts.txt:ro
+    environment:
+      - MYSQL_HOST_PORT
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - REDIS_HOST_PASSWORD
+      - NEXTCLOUD_ADMIN_USER
+      - NEXTCLOUD_ADMIN_PASSWORD
+      

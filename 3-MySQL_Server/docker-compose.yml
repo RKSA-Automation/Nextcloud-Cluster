@@ -1,0 +1,25 @@
+version: '3'
+services:
+  mysql-server:
+    build: ./mysql_server/
+    image: trg_mysql_server:1
+    container_name: mysql
+    hostname: ${PREF_HOSTNAME}
+    restart: always
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+    volumes:
+      - dbdata:/var/lib/mysql:rw
+#      - ../hosts.txt:/hosts.txt:ro
+    env_file:
+      - ./mysql_server/mysql.env
+    environment:
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - SERVER_ID
+
+volumes:
+  dbdata:

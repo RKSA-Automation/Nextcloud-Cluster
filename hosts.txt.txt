@@ -1,0 +1,27 @@
+# Custom Local Domain Name for Nextcloud Instances
+xxx.xxx.xxx.xxx nextcloud-server-1
+xxx.xxx.xxx.xxx nextcloud-server-2
+xxx.xxx.xxx.xxx nextcloud-server-3
+xxx.xxx.xxx.xxx nextcloud-server-4
+xxx.xxx.xxx.xxx nextcloud-server-5
+
+# Custom Local Domain Name for MySQL Instances
+xxx.xxx.xxx.xxx mysql-server-1
+xxx.xxx.xxx.xxx mysql-server-2
+xxx.xxx.xxx.xxx mysql-server-3
+xxx.xxx.xxx.xxx mysql-server-4
+xxx.xxx.xxx.xxx mysql-server-5
+
+# Custom Local Domain Name for Redis Instances
+xxx.xxx.xxx.xxx redis-server
+
+# Custom Local Domain Name for Proxy Server Instances (NGINX or HAPROXY)
+xxx.xxx.xxx.xxx proxy-server
+
+# Custom Local Domain Name for MYSQL Router Server Instances
+xxx.xxx.xxx.xxx mysql-router
+
+# Custom Local Domain Name for OpenLDAP Instances
+xxx.xxx.xxx.xxx openldap-server
+
+# End of Custom IP Address

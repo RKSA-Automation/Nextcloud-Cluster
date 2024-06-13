@@ -1,0 +1,74 @@
+#!/bin/bash
+
+echo \
+"
+.##....##.########.##.....##.########..######..##........#######..##.....##.########.
+.###...##.##........##...##.....##....##....##.##.......##.....##.##.....##.##.....##
+.####..##.##.........##.##......##....##.......##.......##.....##.##.....##.##.....##
+.##.##.##.######......###.......##....##.......##.......##.....##.##.....##.##.....##
+.##..####.##.........##.##......##....##.......##.......##.....##.##.....##.##.....##
+.##...###.##........##...##.....##....##....##.##.......##.....##.##.....##.##.....##
+.##....##.########.##.....##....##.....######..########..#######...#######..########.
+.....................................................................................
+.########..##....##....########.########...######..
+.##.....##..##..##........##....##.....##.##....##.
+.##.....##...####.........##....##.....##.##.......
+.########.....##..........##....########..##...####
+.##.....##....##..........##....##...##...##....##.
+.##.....##....##..........##....##....##..##....##.
+.########.....##..........##....##.....##..######..
+...................................................
+"
+echo
+echo "MYSQL DATABASE SETUP"
+
+while [[ -z "$MYSQL_HOST_PORT" ]]; do
+    read -p "Enter [MySQL Host:Port] : " MYSQL_HOST_PORT
+done
+export MYSQL_HOST=$MYSQL_HOST_PORT
+
+while [[ -z "$MYSQL_DATABASE" ]]; do
+    read -p "Enter [MySQL Database]: " MYSQL_DATABASE
+done
+export MYSQL_DATABASE=$MYSQL_DATABASE
+
+while [[ -z "$MYSQL_USER" ]]; do
+    read -p "Enter [MySQL User]: " MYSQL_USER
+done
+export MYSQL_USER=$MYSQL_USER
+
+while [[ -z "$MYSQL_PASSWORD" ]]; do
+    read -sp "Enter [MySQL Password]: " MYSQL_PASSWORD
+    echo
+done
+export MYSQL_PASSWORD=$MYSQL_PASSWORD
+
+echo
+echo "NEXTCLOUD ADMIN SETUP"
+
+while [[ -z "$NEXTCLOUD_ADMIN_USER" ]]; do
+    read -p "Enter [Nextcloud Admin Username]: " NEXTCLOUD_ADMIN_USER
+done
+export NEXTCLOUD_ADMIN_USER=$NEXTCLOUD_ADMIN_USER
+
+while [[ -z "$NEXTCLOUD_ADMIN_PASSWORD" ]]; do
+    read -sp "Enter [Nextcloud Admin Password]: " NEXTCLOUD_ADMIN_PASSWORD
+    echo
+done
+export NEXTCLOUD_ADMIN_PASSWORD=$NEXTCLOUD_ADMIN_PASSWORD
+
+echo
+echo "REDIS SETUP"
+
+while [[ -z "$REDIS_HOST_PASSWORD" ]]; do
+    read -sp "Enter [Redis Host Password]: " REDIS_HOST_PASSWORD
+    echo
+done
+export REDIS_HOST_PASSWORD=$REDIS_HOST_PASSWORD
+
+echo
+
+echo "EXEC: docker compose up -d "$@""
+docker compose up -d "$@"
+echo
+echo
